@@ -142,26 +142,23 @@ Examples:  </p>
 <li><a href="http://www.lucd.info/2011/04/25/orphaned-files-and-folders-spring-cleaning/">http://www.lucd.info/2011/04/25/orphaned-files-and-folders-spring-cleaning/</a></li>
 </ul>
 <p>There is however one problem no one seem to be able to address at all across all these scripts. When you search "very" large datastores and the ESXCLI / PowerCLI have been running for 15 minutes the script get an exception. (Our VDI linked clone datastore is very large)  </p>
-<div class="highlight"><pre><span></span><code><span class="n">Exception</span> <span class="n">calling</span> <span class="s2">&quot;SearchDatastoreSubFolders&quot;</span> <span class="n">with</span> <span class="s2">&quot;2&quot;</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="err">:</span> <span class="s2">&quot;An error o</span>
+<div class="highlight"><pre><span></span><code><span class="n">Exception</span> <span class="n">calling</span> <span class="s2">&quot;SearchDatastoreSubFolders&quot;</span> <span class="n">with</span> <span class="s2">&quot;2&quot;</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="s2">&quot;An error o</span>
 <span class="s2">ccurred while communicating with the remote host.&quot;</span>
 <span class="n">At</span> <span class="n">xxxxx</span>
 <span class="p">+</span>     <span class="nv">$searchResult</span> <span class="p">=</span> <span class="nv">$dsBrowser</span><span class="p">.</span><span class="n">SearchDatastoreSubFolders</span> <span class="p">&lt;&lt;&lt;&lt;</span> <span class="p">(</span><span class="nv">$rootPath</span><span class="p">,</span> <span class="nv">$se</span>
 <span class="n">archSpec</span><span class="p">)</span>
-    <span class="p">+</span> <span class="n">CategoryInfo</span>          <span class="err">:</span> <span class="n">NotSpecified</span><span class="err">:</span> <span class="p">(</span><span class="err">:</span><span class="p">)</span> <span class="p">[],</span> <span class="n">MethodInvocationException</span>
-    <span class="p">+</span> <span class="n">FullyQualifiedErrorId</span> <span class="err">:</span> <span class="n">DotNetMethodException</span><span class="s2">&quot;.</span>
+    <span class="p">+</span> <span class="n">CategoryInfo</span>          <span class="p">:</span> <span class="n">NotSpecified</span><span class="p">:</span> <span class="p">(:)</span> <span class="p">[],</span> <span class="n">MethodInvocationException</span>
+    <span class="p">+</span> <span class="n">FullyQualifiedErrorId</span> <span class="p">:</span> <span class="n">DotNetMethodException</span><span class="s2">&quot;.</span>
 </code></pre></div>
-
 
 <p>I noticed the exception message was about the remote host so I figured it must be vCenter / ESXi related.  </p>
 <p>Based on above finding I found this <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1017253">VMware KB article</a> that describe how to increase the timeout for tasks to vCenter and ESXCLI to much more than the default 15 minutes. I implemented the KB article on my vCenter server and on all the ESXi hosts in the cluster. This did the trick for me and I can now complete the datastore search. More specific I'm now able to complete this line of code from the scripts without the exception:  </p>
 <div class="highlight"><pre><span></span><code><span class="nv">$xxx</span><span class="p">.</span><span class="n">SearchDatastoreSubFolders</span><span class="p">(</span><span class="nv">$rootPath</span><span class="p">,</span> <span class="nv">$searchSpec</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>I will not list my specific actions as they are covered in the KB article. However the article doesn't mention that the <code>vpxa.cfg</code> file is read only on the ESXi 5.5 host so you need to run the following to get write access  </p>
-<div class="highlight"><pre><span></span><code>chmod u+w /etc/vmware/vpxa/vpxa.cfg
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>u+w<span class="w"> </span>/etc/vmware/vpxa/vpxa.cfg
 </code></pre></div>
-
 
 <p>I hope this makes sense for everyone.<br>
 Please comment if you have any questions or feedback.</p>

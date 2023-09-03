@@ -136,26 +136,26 @@ Please provide any feedback as this is my first blog / post about anything.</p>
 <span class="cm">GO</span>
 <span class="cm">*/</span>
 
-<span class="k">CREATE</span> <span class="n">NONCLUSTERED</span> <span class="k">INDEX</span> <span class="p">[</span><span class="n">IX_SessionDetails_CorrelationId_SessionIdTime</span><span class="p">]</span> <span class="k">ON</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">SessionDetails</span><span class="p">]</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="n">NONCLUSTERED</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="p">[</span><span class="n">IX_SessionDetails_CorrelationId_SessionIdTime</span><span class="p">]</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">SessionDetails</span><span class="p">]</span>
 <span class="p">(</span>
- <span class="p">[</span><span class="n">CorrelationId</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">SessionIdTime</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">ReplacesDialogIdTime</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">ReplacesDialogIdSeq</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">CallFlag</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">MediaTypes</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">User1ClientVerId</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">User2ClientVerId</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">SessionIdSeq</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">SessionStartedById</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">User1Id</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">User2Id</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">ReferredById</span><span class="p">]</span> <span class="k">ASC</span>
+<span class="w"> </span><span class="p">[</span><span class="n">CorrelationId</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">SessionIdTime</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ReplacesDialogIdTime</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ReplacesDialogIdSeq</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">CallFlag</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">MediaTypes</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">User1ClientVerId</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">User2ClientVerId</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">SessionIdSeq</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">SessionStartedById</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">User1Id</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">User2Id</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ReferredById</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span>
 <span class="p">)</span>
-<span class="n">INCLUDE</span> <span class="p">(</span>  <span class="p">[</span><span class="n">TargetUserId</span><span class="p">],</span>
- <span class="p">[</span><span class="n">ResponseTime</span><span class="p">],</span>
- <span class="p">[</span><span class="n">ResponseCode</span><span class="p">],</span>
- <span class="p">[</span><span class="n">SessionEndTime</span><span class="p">])</span> <span class="k">WITH</span> <span class="p">(</span><span class="n">SORT_IN_TEMPDB</span> <span class="o">=</span> <span class="k">OFF</span><span class="p">,</span> <span class="n">DROP_EXISTING</span> <span class="o">=</span> <span class="k">OFF</span><span class="p">,</span> <span class="n">ONLINE</span> <span class="o">=</span> <span class="k">OFF</span><span class="p">)</span> <span class="k">ON</span> <span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+<span class="n">INCLUDE</span><span class="w"> </span><span class="p">(</span><span class="w">  </span><span class="p">[</span><span class="n">TargetUserId</span><span class="p">],</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ResponseTime</span><span class="p">],</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ResponseCode</span><span class="p">],</span>
+<span class="w"> </span><span class="p">[</span><span class="n">SessionEndTime</span><span class="p">])</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">SORT_IN_TEMPDB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">DROP_EXISTING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">ONLINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
 <span class="k">go</span>
 
 <span class="cm">/*</span>
@@ -165,26 +165,26 @@ Please provide any feedback as this is my first blog / post about anything.</p>
 <span class="cm">GO</span>
 <span class="cm">*/</span>
 
-<span class="k">CREATE</span> <span class="n">NONCLUSTERED</span> <span class="k">INDEX</span> <span class="p">[</span><span class="n">IX_SessionDetails_ReplacesDialogIdTime_SessionIdTime</span><span class="p">]</span> <span class="k">ON</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">SessionDetails</span><span class="p">]</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="n">NONCLUSTERED</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="p">[</span><span class="n">IX_SessionDetails_ReplacesDialogIdTime_SessionIdTime</span><span class="p">]</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">SessionDetails</span><span class="p">]</span>
 <span class="p">(</span>
- <span class="p">[</span><span class="n">ReplacesDialogIdTime</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">SessionIdTime</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">ReplacesDialogIdSeq</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">CallFlag</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">MediaTypes</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">User1ClientVerId</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">User2ClientVerId</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">SessionIdSeq</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">SessionStartedById</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">User1Id</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">User2Id</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">CorrelationId</span><span class="p">]</span> <span class="k">ASC</span><span class="p">,</span>
- <span class="p">[</span><span class="n">ReferredById</span><span class="p">]</span> <span class="k">ASC</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ReplacesDialogIdTime</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">SessionIdTime</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ReplacesDialogIdSeq</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">CallFlag</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">MediaTypes</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">User1ClientVerId</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">User2ClientVerId</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">SessionIdSeq</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">SessionStartedById</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">User1Id</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">User2Id</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">CorrelationId</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ReferredById</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span>
 <span class="p">)</span>
-<span class="n">INCLUDE</span> <span class="p">(</span>  <span class="p">[</span><span class="n">TargetUserId</span><span class="p">],</span>
- <span class="p">[</span><span class="n">ResponseTime</span><span class="p">],</span>
- <span class="p">[</span><span class="n">ResponseCode</span><span class="p">],</span>
- <span class="p">[</span><span class="n">SessionEndTime</span><span class="p">])</span> <span class="k">WITH</span> <span class="p">(</span><span class="n">SORT_IN_TEMPDB</span> <span class="o">=</span> <span class="k">OFF</span><span class="p">,</span> <span class="n">DROP_EXISTING</span> <span class="o">=</span> <span class="k">OFF</span><span class="p">,</span> <span class="n">ONLINE</span> <span class="o">=</span> <span class="k">OFF</span><span class="p">)</span> <span class="k">ON</span> <span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+<span class="n">INCLUDE</span><span class="w"> </span><span class="p">(</span><span class="w">  </span><span class="p">[</span><span class="n">TargetUserId</span><span class="p">],</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ResponseTime</span><span class="p">],</span>
+<span class="w"> </span><span class="p">[</span><span class="n">ResponseCode</span><span class="p">],</span>
+<span class="w"> </span><span class="p">[</span><span class="n">SessionEndTime</span><span class="p">])</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">SORT_IN_TEMPDB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">DROP_EXISTING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">ONLINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
 <span class="k">go</span>
 </code></pre></div>
             </div>
