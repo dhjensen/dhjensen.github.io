@@ -1,4 +1,4 @@
-env*
+.venv
 cache
 .doit.db
 __pycache__
