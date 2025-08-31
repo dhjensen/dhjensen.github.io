@@ -1,0 +1,4 @@
+Sitemap: https://dhjensen.dk/sitemapindex.xml
+
+User-Agent: *
+Host: dhjensen.dk
